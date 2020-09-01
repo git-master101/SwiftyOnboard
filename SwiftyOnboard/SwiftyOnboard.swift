@@ -2,7 +2,7 @@
 // ViewController.swift
 // SwiftyOnboard
 //
-// Created by Jay on 3/25/17.
+// Created by Jay on 3/25/17.gbtest
 // Copyright © 2017 Juan Pablo Fernandez. All rights reserved.
 //
 import UIKit
