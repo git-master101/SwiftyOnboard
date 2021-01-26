@@ -81,13 +81,15 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
     fileprivate var pages = [SwiftyOnboardPage]()
     
     open var style: SwiftyOnboardStyle = .dark
+    open var type: SwiftyOnboardType = .profile
     open var shouldSwipe: Bool = true
     open var fadePages: Bool = false
     
     
-    public init(frame: CGRect, style: SwiftyOnboardStyle = .dark) {
+    public init(frame: CGRect, style: SwiftyOnboardStyle = .dark, type: SwiftyOnboardType = .profile) {
         super.init(frame: frame)
         self.style = style
+        self.type = type
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -100,6 +102,7 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
         setUpPages()
         setOverlayView()
         containerView.isScrollEnabled = shouldSwipe
+        self.backgroundColor = .clear
     }
     
     override open func layoutSubviews() {
@@ -239,10 +242,7 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
         if let overlayView = self.overlay {
             self.dataSource?.swiftyOnboardOverlayForPosition(self, overlay: overlayView, for: currentPosition)
         }
-        
-        if let color = colorForPosition(CGFloat(currentPosition)) {
-            self.backgroundColor = color
-        }
+         
     }
     
     open func goToPage(index: Int, animated: Bool) {
@@ -256,4 +256,9 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
 public enum SwiftyOnboardStyle {
     case light
     case dark
+}
+
+public enum SwiftyOnboardType {
+    case profile
+    case firstTime
 }
