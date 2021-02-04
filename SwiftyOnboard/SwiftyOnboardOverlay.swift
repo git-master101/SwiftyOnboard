@@ -72,11 +72,9 @@ open class SwiftyOnboardOverlay: UIView {
         switch style {
         case .light:
             continueButton.setTitleColor(.white, for: .normal)
-//            skipButton.setTitleColor(.white, for: .normal)
             pageControl.currentPageIndicatorTintColor = UIColor.white
         case .dark:
             continueButton.setTitleColor(.black, for: .normal)
-//            skipButton.setTitleColor(.black, for: .normal)
             pageControl.currentPageIndicatorTintColor = UIColor.black
         }
     }
@@ -105,12 +103,6 @@ open class SwiftyOnboardOverlay: UIView {
         continueButton.widthAnchor.constraint(equalToConstant: 48).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: 36.5).isActive = true
         continueButton.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -16).isActive = true
-        
-//                continueButton.translatesAutoresizingMaskIntoConstraints = false
-//                continueButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-//                continueButton.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: 36.5).isActive = true
-//                continueButton.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 10).isActive = true
-//                continueButton.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -20).isActive = true
         
         self.addSubview(skipButton)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
