@@ -112,6 +112,17 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
         }
     }
     
+    public func reloadData(){
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else{ return }
+            self.pages.removeAll()
+            for subview in self.containerView.subviews{
+                subview.removeFromSuperview()
+            }
+            self.loadView()
+        }
+    }
+    
     fileprivate func setUpContainerView() {
         self.addSubview(containerView)
         self.containerView.frame = self.frame
