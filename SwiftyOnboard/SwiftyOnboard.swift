@@ -102,7 +102,6 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
         setUpPages()
         setOverlayView()
         containerView.isScrollEnabled = shouldSwipe
-        self.backgroundColor = .clear
     }
     
     override open func layoutSubviews() {
