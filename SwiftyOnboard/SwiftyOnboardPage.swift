@@ -75,7 +75,7 @@ open class SwiftyOnboardPage: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 0).isActive = true
         imageView.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: 0).isActive = true
-        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: (type == .profile) ? 30 : 60).isActive = true
+        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: (type == .profile) ? 24 : 60).isActive = true
         
         
         if UIDevice().userInterfaceIdiom == .phone {
@@ -92,8 +92,8 @@ open class SwiftyOnboardPage: UIView {
         
         self.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 16).isActive = true
-        title.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -16).isActive = true
+        title.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 34).isActive = true
+        title.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -34).isActive = true
         title.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: (type == .profile) ? 8 : 28).isActive = true
         if type == .firstTime{
             title.heightAnchor.constraint(equalToConstant: 50).isActive = true
