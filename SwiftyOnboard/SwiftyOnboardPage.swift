@@ -75,7 +75,7 @@ open class SwiftyOnboardPage: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 0).isActive = true
         imageView.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: 0).isActive = true
-        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: (type == .profile) ? 24 : 60).isActive = true
+        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: (type == .profile) ? 30 : 60).isActive = true
         
         
         if UIDevice().userInterfaceIdiom == .phone {
