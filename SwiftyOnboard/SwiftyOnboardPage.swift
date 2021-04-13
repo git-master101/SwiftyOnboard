@@ -79,14 +79,26 @@ open class SwiftyOnboardPage: UIView {
         
         
         if UIDevice().userInterfaceIdiom == .phone {
-
+            
             switch UIScreen.main.nativeBounds.height {
             case 1136:
-                 imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: (type == .profile) ? 0.21 : 0.45).isActive = true
+                if type == .profile{
+                    imageView.heightAnchor.constraint(equalToConstant: 49).isActive = true
+                }else{
+                    imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.45).isActive = true
+                }
             case 1334, 1920, 2208:
-                 imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: (type == .profile) ? 0.24 : 0.52).isActive = true
+                if type == .profile{
+                    imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+                }else{
+                    imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.52).isActive = true
+                }
             default:
-                imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: (type == .profile) ? 0.27 : 0.59).isActive = true
+                if type == .profile{
+                    imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+                }else{
+                    imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.59).isActive = true
+                }
             }
         }
         
