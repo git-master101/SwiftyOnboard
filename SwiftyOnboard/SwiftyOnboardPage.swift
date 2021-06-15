@@ -75,27 +75,36 @@ open class SwiftyOnboardPage: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 0).isActive = true
         imageView.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: 0).isActive = true
-        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: (type == .profile) ? 8 : 60).isActive = true
+        
+        var topAnchor:CGFloat = 60
+        
+        if type == .premiumPaywall{
+            topAnchor = 16
+        }else if type == .profile{
+            topAnchor = 28
+        }
+        
+        imageView.topAnchor.constraint(equalTo: margin.topAnchor, constant: topAnchor).isActive = true
         
         
         if UIDevice().userInterfaceIdiom == .phone {
             
             switch UIScreen.main.nativeBounds.height {
             case 1136:
-                if type == .profile{
+                if type == .profile || type == .premiumPaywall{
                     imageView.heightAnchor.constraint(equalToConstant: 49).isActive = true
                 }else{
                     imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.45).isActive = true
                 }
             case 1334, 1920, 2208:
-                if type == .profile{
-                    imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+                if type == .profile || type == .premiumPaywall{
+                    imageView.heightAnchor.constraint(equalToConstant: 58).isActive = true
                 }else{
                     imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.52).isActive = true
                 }
             default:
-                if type == .profile{
-                    imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
+                if type == .profile || type == .premiumPaywall{
+                    imageView.heightAnchor.constraint(equalToConstant: 58).isActive = true
                 }else{
                     imageView.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.59).isActive = true
                 }
@@ -106,7 +115,16 @@ open class SwiftyOnboardPage: UIView {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 34).isActive = true
         title.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -34).isActive = true
-        title.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: (type == .profile) ? 8 : 28).isActive = true
+        
+        var topTitleAnchor:CGFloat = 28
+        
+        if type == .profile{
+            topTitleAnchor = 8
+        }else if type == .premiumPaywall{
+            topTitleAnchor = 19
+        }
+        
+        title.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: topTitleAnchor).isActive = true
         if type == .firstTime{
             title.heightAnchor.constraint(equalToConstant: 50).isActive = true
         }
@@ -115,7 +133,7 @@ open class SwiftyOnboardPage: UIView {
         subTitle.translatesAutoresizingMaskIntoConstraints = false
         subTitle.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 16).isActive = true
         subTitle.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -16).isActive = true
-        subTitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8).isActive = true
+        subTitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: (type == .premiumPaywall) ? 5 : 9).isActive = true
 
     }
 }

@@ -124,8 +124,8 @@ public class SwiftyOnboard: UIView, UIScrollViewDelegate {
     }
     
     fileprivate func setUpContainerView() {
+        self.containerView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         self.addSubview(containerView)
-        self.containerView.frame = self.frame
         containerView.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedPage))
         containerView.addGestureRecognizer(tap)
@@ -270,5 +270,6 @@ public enum SwiftyOnboardStyle {
 
 public enum SwiftyOnboardType {
     case profile
+    case premiumPaywall
     case firstTime
 }

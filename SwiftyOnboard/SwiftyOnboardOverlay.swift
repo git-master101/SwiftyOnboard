@@ -93,7 +93,8 @@ open class SwiftyOnboardOverlay: UIView {
         let margin = self.layoutMarginsGuide
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        pageControl.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: (DeviceType.hasNotch) ? -16 : -24).isActive = true
+        
+        pageControl.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: (DeviceType.hasNotch) ? -12 : -24).isActive = true
         pageControl.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 10).isActive = true
         pageControl.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -10).isActive = true
         
